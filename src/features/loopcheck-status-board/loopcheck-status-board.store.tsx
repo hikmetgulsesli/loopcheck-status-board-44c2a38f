@@ -10,10 +10,9 @@ import {
 import type {
   LoopcheckAppApi,
   LoopcheckAppState,
-  LoopcheckPreferences,
+  LoopcheckScreen,
   LoopcheckRecord,
   LoopcheckRecordStatus,
-  LoopcheckScreen,
 } from './loopcheck-status-board.types';
 import { createLoopcheckRepo } from './loopcheck-status-board.repo';
 import {
@@ -55,28 +54,26 @@ export function LoopcheckAppProvider({ children, initialState }: LoopcheckAppPro
     ...initialState,
   });
 
-  const persist = useCallback(
-    (
-      records: LoopcheckRecord[],
-      preferences: LoopcheckPreferences,
-      previousError: string | null,
-    ) => {
-      const result = repo.save({
-        version: 1,
-        records,
-        preferences,
-      });
-      if (!result.ok) {
-        setState((prev) => ({ ...prev, lastError: result.error ?? 'Save failed.' }));
-      } else if (previousError !== null) {
-        setState((prev) => ({ ...prev, lastError: null }));
-      }
-    },
-    [repo],
-  );
+  // Synchronize persisted records and preferences to localStorage whenever
+  // the ready-state changes. Keeping this side effect outside of setState
+  // updaters keeps state updates pure.
+  useEffect(() => {
+    if (state.storageStatus !== 'ready') {
+      return;
+    }
+    const result = repo.save({
+      version: 1,
+      records: state.records,
+      preferences: state.preferences,
+    });
+    if (!result.ok) {
+      setState((prev) =>
+        prev.lastError === result.error ? prev : { ...prev, lastError: result.error ?? 'Save failed.' },
+      );
+    }
+  }, [state.records, state.preferences, state.storageStatus, repo]);
 
   const refreshStorage = useCallback(() => {
-    setState((prev) => ({ ...prev, storageStatus: 'loading' }));
     const result = repo.load();
     const loaded = result.data ?? buildDefaultPersistedState();
     setState((prev) => ({
@@ -104,9 +101,11 @@ export function LoopcheckAppProvider({ children, initialState }: LoopcheckAppPro
   const setActivePanel = useCallback((panel: 'board' | 'list' | null) => {
     setState((prev) => {
       const next = { ...prev, activePanel: panel };
-      if (panel !== null) {
-        next.preferences = { ...prev.preferences, activePanel: panel, viewMode: panel };
-      }
+      next.preferences = {
+        ...prev.preferences,
+        activePanel: panel,
+        viewMode: panel !== null ? panel : prev.preferences.viewMode,
+      };
       return next;
     });
   }, []);
@@ -114,21 +113,20 @@ export function LoopcheckAppProvider({ children, initialState }: LoopcheckAppPro
   const updateDerived = useCallback((records: LoopcheckRecord[], prevState: LoopcheckAppState) => {
     const counts = buildCounts(records);
     const selectedExists = records.some((r) => r.id === prevState.selectedRecordId);
-    persist(records, prevState.preferences, prevState.lastError);
     return {
       ...prevState,
       records,
       counts,
       selectedRecordId: selectedExists ? prevState.selectedRecordId : null,
     };
-  }, [persist]);
+  }, []);
 
   const createRecord = useCallback(
     (draft: Omit<LoopcheckRecord, 'id' | 'updatedAt'>) => {
       setState((prev) => {
         const newRecord: LoopcheckRecord = {
           ...draft,
-          id: `rec-${Date.now()}`,
+          id: `rec-${Date.now()}-${Math.random().toString(36).slice(2, 11)}`,
           updatedAt: new Date().toISOString(),
         };
         return updateDerived([newRecord, ...prev.records], prev);
@@ -185,7 +183,18 @@ export function LoopcheckAppProvider({ children, initialState }: LoopcheckAppPro
       clearError,
       refreshStorage,
     }),
-    [state, navigateTo, selectRecord, setActivePanel, createRecord, updateRecord, deleteRecord, setRecordStatus, clearError, refreshStorage],
+    [
+      state,
+      navigateTo,
+      selectRecord,
+      setActivePanel,
+      createRecord,
+      updateRecord,
+      deleteRecord,
+      setRecordStatus,
+      clearError,
+      refreshStorage,
+    ],
   );
 
   return <LoopcheckAppContext.Provider value={value}>{children}</LoopcheckAppContext.Provider>;
