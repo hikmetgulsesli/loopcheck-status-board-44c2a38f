@@ -1,0 +1,374 @@
+[
+  {
+    "screenId": "8ab0d75de9ed45f6858905ea16c49b09",
+    "title": "Record Editor - LoopCheck Status Board",
+    "componentName": "RecordEditorLoopcheckStatusBoard",
+    "file": "src/screens/RecordEditorLoopcheckStatusBoard.tsx",
+    "buttons": 8,
+    "inputs": 3,
+    "links": 4,
+    "actions": [
+      {
+        "id": "menu-1",
+        "kind": "button",
+        "label": "Menu",
+        "index": 0
+      },
+      {
+        "id": "notifications-2",
+        "kind": "button",
+        "label": "notifications",
+        "index": 1
+      },
+      {
+        "id": "account-circle-3",
+        "kind": "button",
+        "label": "account_circle",
+        "index": 2
+      },
+      {
+        "id": "create-record-4",
+        "kind": "button",
+        "label": "Create Record",
+        "index": 3
+      },
+      {
+        "id": "close-5",
+        "kind": "button",
+        "label": "Close",
+        "index": 4
+      },
+      {
+        "id": "close-6",
+        "kind": "button",
+        "label": "Close",
+        "index": 5
+      },
+      {
+        "id": "cancel-7",
+        "kind": "button",
+        "label": "Cancel",
+        "index": 6
+      },
+      {
+        "id": "save-record-8",
+        "kind": "button",
+        "label": "Save Record",
+        "index": 7
+      },
+      {
+        "id": "operations-1",
+        "kind": "link",
+        "label": "Operations",
+        "href": "#",
+        "index": 0
+      },
+      {
+        "id": "status-board-2",
+        "kind": "link",
+        "label": "Status Board",
+        "href": "#",
+        "index": 1
+      },
+      {
+        "id": "insights-3",
+        "kind": "link",
+        "label": "Insights",
+        "href": "#",
+        "index": 2
+      },
+      {
+        "id": "settings-4",
+        "kind": "link",
+        "label": "Settings",
+        "href": "#",
+        "index": 3
+      }
+    ]
+  },
+  {
+    "screenId": "938867aed3f14bb5aa6819549842f7c1",
+    "title": "Status Board - LoopCheck Status Board",
+    "componentName": "StatusBoardLoopcheckStatusBoard",
+    "file": "src/screens/StatusBoardLoopcheckStatusBoard.tsx",
+    "buttons": 11,
+    "inputs": 1,
+    "links": 4,
+    "actions": [
+      {
+        "id": "notifications-1",
+        "kind": "button",
+        "label": "Notifications",
+        "index": 0
+      },
+      {
+        "id": "account-circle-2",
+        "kind": "button",
+        "label": "Account Circle",
+        "index": 1
+      },
+      {
+        "id": "create-record-3",
+        "kind": "button",
+        "label": "Create Record",
+        "index": 2
+      },
+      {
+        "id": "board-view-4",
+        "kind": "button",
+        "label": "Board View",
+        "index": 3
+      },
+      {
+        "id": "list-view-5",
+        "kind": "button",
+        "label": "List View",
+        "index": 4
+      },
+      {
+        "id": "filter-6",
+        "kind": "button",
+        "label": "Filter",
+        "index": 5
+      },
+      {
+        "id": "sort-7",
+        "kind": "button",
+        "label": "Sort",
+        "index": 6
+      },
+      {
+        "id": "play-arrow-8",
+        "kind": "button",
+        "label": "Play Arrow",
+        "index": 7
+      },
+      {
+        "id": "play-arrow-9",
+        "kind": "button",
+        "label": "Play Arrow",
+        "index": 8
+      },
+      {
+        "id": "pause-10",
+        "kind": "button",
+        "label": "Pause",
+        "index": 9
+      },
+      {
+        "id": "refresh-11",
+        "kind": "button",
+        "label": "Refresh",
+        "index": 10
+      },
+      {
+        "id": "operations-1",
+        "kind": "link",
+        "label": "Operations",
+        "href": "#",
+        "index": 0
+      },
+      {
+        "id": "status-board-2",
+        "kind": "link",
+        "label": "Status Board",
+        "href": "#",
+        "index": 1
+      },
+      {
+        "id": "insights-3",
+        "kind": "link",
+        "label": "Insights",
+        "href": "#",
+        "index": 2
+      },
+      {
+        "id": "settings-4",
+        "kind": "link",
+        "label": "Settings",
+        "href": "#",
+        "index": 3
+      }
+    ]
+  },
+  {
+    "screenId": "5db48a31e7464e52aba0033ec86a13d0",
+    "title": "Insights - LoopCheck Status Board",
+    "componentName": "InsightsLoopcheckStatusBoard",
+    "file": "src/screens/InsightsLoopcheckStatusBoard.tsx",
+    "buttons": 7,
+    "inputs": 1,
+    "links": 4,
+    "actions": [
+      {
+        "id": "notifications-1",
+        "kind": "button",
+        "label": "Notifications",
+        "index": 0
+      },
+      {
+        "id": "account-circle-2",
+        "kind": "button",
+        "label": "Account Circle",
+        "index": 1
+      },
+      {
+        "id": "create-record-3",
+        "kind": "button",
+        "label": "Create Record",
+        "index": 2
+      },
+      {
+        "id": "filter-insights-4",
+        "kind": "button",
+        "label": "Filter Insights",
+        "index": 3
+      },
+      {
+        "id": "export-summary-5",
+        "kind": "button",
+        "label": "Export Summary",
+        "index": 4
+      },
+      {
+        "id": "more-horiz-6",
+        "kind": "button",
+        "label": "More Horiz",
+        "index": 5
+      },
+      {
+        "id": "review-queue-7",
+        "kind": "button",
+        "label": "Review Queue",
+        "index": 6
+      },
+      {
+        "id": "operations-1",
+        "kind": "link",
+        "label": "Operations",
+        "href": "#",
+        "index": 0
+      },
+      {
+        "id": "status-board-2",
+        "kind": "link",
+        "label": "Status Board",
+        "href": "#",
+        "index": 1
+      },
+      {
+        "id": "insights-3",
+        "kind": "link",
+        "label": "Insights",
+        "href": "#",
+        "index": 2
+      },
+      {
+        "id": "settings-4",
+        "kind": "link",
+        "label": "Settings",
+        "href": "#",
+        "index": 3
+      }
+    ]
+  },
+  {
+    "screenId": "ae5c2fbd029544bea36cb72248f50c4f",
+    "title": "Record Operations - LoopCheck Status Board",
+    "componentName": "RecordOperationsLoopcheckStatusBoard",
+    "file": "src/screens/RecordOperationsLoopcheckStatusBoard.tsx",
+    "buttons": 10,
+    "inputs": 4,
+    "links": 4,
+    "actions": [
+      {
+        "id": "notifications-1",
+        "kind": "button",
+        "label": "Notifications",
+        "index": 0
+      },
+      {
+        "id": "account-circle-2",
+        "kind": "button",
+        "label": "Account Circle",
+        "index": 1
+      },
+      {
+        "id": "create-record-3",
+        "kind": "button",
+        "label": "Create Record",
+        "index": 2
+      },
+      {
+        "id": "filter-list-4",
+        "kind": "button",
+        "label": "Filter List",
+        "index": 3
+      },
+      {
+        "id": "chevron-left-5",
+        "kind": "button",
+        "label": "Chevron Left",
+        "index": 4
+      },
+      {
+        "id": "2-6",
+        "kind": "button",
+        "label": "2",
+        "index": 5
+      },
+      {
+        "id": "chevron-right-7",
+        "kind": "button",
+        "label": "Chevron Right",
+        "index": 6
+      },
+      {
+        "id": "more-vert-8",
+        "kind": "button",
+        "label": "More Vert",
+        "index": 7
+      },
+      {
+        "id": "pause-9",
+        "kind": "button",
+        "label": "Pause",
+        "index": 8
+      },
+      {
+        "id": "restart-10",
+        "kind": "button",
+        "label": "Restart",
+        "index": 9
+      },
+      {
+        "id": "operations-1",
+        "kind": "link",
+        "label": "Operations",
+        "href": "#",
+        "index": 0
+      },
+      {
+        "id": "status-board-2",
+        "kind": "link",
+        "label": "Status Board",
+        "href": "#",
+        "index": 1
+      },
+      {
+        "id": "insights-3",
+        "kind": "link",
+        "label": "Insights",
+        "href": "#",
+        "index": 2
+      },
+      {
+        "id": "settings-4",
+        "kind": "link",
+        "label": "Settings",
+        "href": "#",
+        "index": 3
+      }
+    ]
+  }
+]
