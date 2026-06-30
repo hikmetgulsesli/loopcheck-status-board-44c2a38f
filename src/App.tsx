@@ -33,8 +33,8 @@ function AppShell() {
   } as const;
 
   const createRecord = makeCreateRecordAction(app);
-  const saveRecord = makeSaveRecordAction(app);
-  const cancelEdit = makeCancelEditAction(app);
+  const saveRecord = makeSaveRecordAction(app, { onSaved: 'status-board', refresh: true });
+  const cancelEdit = makeCancelEditAction(app, { fallback: 'status-board' });
   const statusBoardUpdateStatus = makeStatusBoardUpdateRecordStatusAction(app);
   const operationsUpdateStatus = makeOperationsUpdateRecordStatusAction(app);
   const filterInsights = makeFilterInsightsAction(app);
