@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>LoopCheck Status Board - Record Editor</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container": "#171f33",
+                        "on-error-container": "#ffdad6",
+                        "on-primary-fixed": "#00174b",
+                        "on-surface-variant": "#c3c6d7",
+                        "secondary-container": "#3a4a5f",
+                        "on-background": "#dae2fd",
+                        "inverse-surface": "#dae2fd",
+                        "secondary": "#b7c8e1",
+                        "primary-fixed-dim": "#b4c5ff",
+                        "on-secondary": "#213145",
+                        "secondary-fixed": "#d3e4fe",
+                        "surface": "#0b1326",
+                        "tertiary-fixed-dim": "#ffb596",
+                        "on-surface": "#dae2fd",
+                        "surface-container-lowest": "#060e20",
+                        "primary-fixed": "#dbe1ff",
+                        "secondary-fixed-dim": "#b7c8e1",
+                        "on-tertiary-fixed": "#360f00",
+                        "on-error": "#690005",
+                        "tertiary-fixed": "#ffdbcd",
+                        "on-primary-fixed-variant": "#003ea8",
+                        "surface-dim": "#0b1326",
+                        "surface-container-low": "#131b2e",
+                        "on-tertiary-container": "#ffede6",
+                        "inverse-on-surface": "#283044",
+                        "on-primary": "#002a78",
+                        "surface-bright": "#31394d",
+                        "on-primary-container": "#eeefff",
+                        "outline-variant": "#434655",
+                        "error": "#ffb4ab",
+                        "surface-tint": "#b4c5ff",
+                        "on-secondary-container": "#a9bad3",
+                        "error-container": "#93000a",
+                        "background": "#0b1326",
+                        "primary": "#b4c5ff",
+                        "on-secondary-fixed-variant": "#38485d",
+                        "tertiary": "#ffb596",
+                        "inverse-primary": "#0053db",
+                        "surface-container-highest": "#2d3449",
+                        "on-tertiary": "#581e00",
+                        "on-tertiary-fixed-variant": "#7d2d00",
+                        "on-secondary-fixed": "#0b1c30",
+                        "surface-container-high": "#222a3d",
+                        "outline": "#8d90a0",
+                        "surface-variant": "#2d3449",
+                        "primary-container": "#2563eb",
+                        "tertiary-container": "#bc4800"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "xl": "32px",
+                        "margin-mobile": "16px",
+                        "md": "16px",
+                        "base": "4px",
+                        "gutter": "12px",
+                        "lg": "24px",
+                        "sm": "8px",
+                        "margin-desktop": "24px",
+                        "xs": "4px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Inter"],
+                        "label-md": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "body-md": ["Inter"],
+                        "mono-data": ["JetBrains Mono"],
+                        "label-caps": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "headline-sm": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .font-headline-md { font-family: 'Inter', sans-serif; font-size: 18px; line-height: 24px; letter-spacing: -0.01em; font-weight: 600; }
+        .text-headline-md { font-size: 18px; line-height: 24px; letter-spacing: -0.01em; font-weight: 600; }
+        .font-label-md { font-family: 'Inter', sans-serif; font-size: 12px; line-height: 16px; letter-spacing: 0.01em; font-weight: 500; }
+        .text-label-md { font-size: 12px; line-height: 16px; letter-spacing: 0.01em; font-weight: 500; }
+        .font-headline-lg { font-family: 'Inter', sans-serif; font-size: 24px; line-height: 32px; letter-spacing: -0.02em; font-weight: 600; }
+        .text-headline-lg { font-size: 24px; line-height: 32px; letter-spacing: -0.02em; font-weight: 600; }
+        .font-body-md { font-family: 'Inter', sans-serif; font-size: 14px; line-height: 20px; font-weight: 400; }
+        .text-body-md { font-size: 14px; line-height: 20px; font-weight: 400; }
+        .font-mono-data { font-family: 'JetBrains Mono', monospace; font-size: 12px; line-height: 16px; font-weight: 400; }
+        .text-mono-data { font-size: 12px; line-height: 16px; font-weight: 400; }
+        .font-label-caps { font-family: 'Inter', sans-serif; font-size: 10px; line-height: 12px; letter-spacing: 0.05em; font-weight: 700; text-transform: uppercase; }
+        .text-label-caps { font-size: 10px; line-height: 12px; letter-spacing: 0.05em; font-weight: 700; }
+        .font-body-sm { font-family: 'Inter', sans-serif; font-size: 12px; line-height: 16px; font-weight: 400; }
+        .text-body-sm { font-size: 12px; line-height: 16px; font-weight: 400; }
+        .font-headline-sm { font-family: 'Inter', sans-serif; font-size: 14px; line-height: 20px; font-weight: 600; }
+        .text-headline-sm { font-size: 14px; line-height: 20px; font-weight: 600; }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen font-body-md overflow-x-hidden selection:bg-primary-container selection:text-on-primary-container">
+<!-- SideNavBar -->
+<nav class="bg-surface-container-low dark:bg-surface-container-low h-screen w-64 fixed left-0 top-0 border-r border-outline-variant hidden md:flex flex-col py-lg z-50">
+<!-- Header -->
+<div class="px-lg mb-xl">
+<div class="flex items-center gap-md">
+<div class="w-10 h-10 rounded-full bg-surface-container-highest overflow-hidden border border-outline-variant">
+<img alt="System Operator" class="w-full h-full object-cover" data-alt="A futuristic, minimalist avatar representing a system operator in a high-tech control room environment, glowing cyan accents on a dark slate background, highly detailed vector art style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBUIQ2_pTSZ_9T0nH9SNU1B9afal8BrutNZ6oYMeN56mFME5hPmwhwVQidwggXdnZQ0U643JC9GINIkp7JepsrA5a6H5nzjvS0VFkNAsUpvMGO3nE95yODOWOVpav625nue44lZVyCTElk-2keCksV3BsK_evicvghJ6CfrL_wBJuC6mIjm-vrHKpR8SgUsNk_VerDl1YJKJSr2i4IKrY4p3RW0NTHcnJMpRQW3XCfu7WE_fpBbc6LwnLhTDe3RGXFcvM1lO-be33A"/>
+</div>
+<div>
+<h1 class="font-headline-md text-headline-md text-primary">LoopCheck</h1>
+<p class="font-label-md text-label-md text-on-surface-variant">Operational Hub</p>
+</div>
+</div>
+</div>
+<!-- Navigation Links -->
+<div class="flex-grow flex flex-col px-md gap-sm">
+<!-- Active Tab: Operations -->
+<a class="flex items-center gap-md px-md py-sm rounded-lg bg-surface-container-high text-primary font-bold border-r-2 border-primary cursor-pointer active:scale-95 transition-transform" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">settings_remote</span>
+<span class="font-label-md text-label-md">Operations</span>
+</a>
+<!-- Inactive Tabs -->
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high transition-colors hover:text-primary cursor-pointer active:scale-95 transition-transform" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-label-md text-label-md">Status Board</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high transition-colors hover:text-primary cursor-pointer active:scale-95 transition-transform" href="#">
+<span class="material-symbols-outlined">analytics</span>
+<span class="font-label-md text-label-md">Insights</span>
+</a>
+</div>
+<!-- Footer -->
+<div class="px-md mt-auto">
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high transition-colors hover:text-primary cursor-pointer active:scale-95 transition-transform" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-label-md text-label-md">Settings</span>
+</a>
+</div>
+</nav>
+<!-- Main Content Area Wrapper -->
+<div class="md:ml-64 flex flex-col min-h-screen">
+<!-- TopNavBar -->
+<header class="bg-surface dark:bg-surface fixed top-0 right-0 left-0 md:left-64 h-14 border-b border-outline-variant z-40 flex justify-between items-center px-lg">
+<div class="flex items-center gap-md">
+<!-- Mobile Menu Toggle (Visible only on small screens) -->
+<button class="md:hidden text-on-surface-variant hover:text-primary transition-colors cursor-pointer">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<div class="font-headline-sm text-headline-sm text-on-background">LoopCheck Status Board</div>
+</div>
+<div class="flex items-center gap-lg">
+<!-- Search (on_right) -->
+<div class="relative hidden sm:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-sm">search</span>
+<input class="bg-surface-container-lowest border border-outline-variant rounded-full py-1 pl-10 pr-4 text-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary w-64 text-on-background placeholder-on-surface-variant font-body-sm text-body-sm h-8 transition-colors" placeholder="Search records..." type="text"/>
+</div>
+<!-- Icons -->
+<div class="flex items-center gap-md">
+<button aria-label="notifications" class="text-on-surface-variant hover:text-primary transition-colors cursor-pointer relative">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-0 right-0 w-2 h-2 bg-error rounded-full"></span>
+</button>
+<button aria-label="account_circle" class="text-on-surface-variant hover:text-primary transition-colors cursor-pointer">
+<span class="material-symbols-outlined">account_circle</span>
+</button>
+</div>
+<!-- Primary Action -->
+<button class="hidden md:flex items-center justify-center h-8 px-md bg-primary text-on-primary rounded font-label-md text-label-md hover:bg-primary-container hover:text-on-primary-container transition-colors active:scale-95">
+                    Create Record
+                </button>
+</div>
+</header>
+<!-- Main Canvas -->
+<main class="flex-grow pt-14 p-lg md:p-margin-desktop overflow-y-auto">
+<!-- Bento-style Container for the Form -->
+<div class="max-w-3xl mx-auto w-full">
+<!-- Page Header -->
+<div class="mb-lg flex justify-between items-end">
+<div>
+<h2 class="font-headline-lg text-headline-lg text-on-background">Edit Record</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mt-xs">Modify operational parameters and status.</p>
+</div>
+</div>
+<!-- Form Card -->
+<div class="bg-surface border border-outline-variant rounded-xl overflow-hidden shadow-lg shadow-black/20">
+<form class="p-lg flex flex-col gap-lg">
+<!-- Record Name (Error State Example) -->
+<div class="flex flex-col gap-xs">
+<label class="font-label-md text-label-md text-on-surface flex items-center gap-xs" for="record_name">
+                                Record Name <span class="text-error">*</span>
+</label>
+<input class="w-full bg-surface-container-lowest border border-error rounded-lg px-md py-sm font-body-md text-body-md text-on-background focus:outline-none focus:ring-1 focus:ring-error transition-colors" id="record_name" placeholder="Enter record identifier" type="text" value=""/>
+<p class="font-body-sm text-body-sm text-error flex items-center gap-xs mt-1">
+<span class="material-symbols-outlined text-[14px]">error</span>
+                                Error: name cannot be empty
+                            </p>
+</div>
+<!-- Description -->
+<div class="flex flex-col gap-xs">
+<label class="font-label-md text-label-md text-on-surface" for="description">
+                                Description
+                            </label>
+<textarea class="w-full bg-surface-container-lowest border border-outline-variant rounded-lg px-md py-sm font-body-md text-body-md text-on-background focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors resize-y" id="description" placeholder="Describe the operational context..." rows="4"></textarea>
+</div>
+<!-- 2-Column Grid for Status and Tags -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-lg">
+<!-- Operational Status -->
+<div class="flex flex-col gap-xs">
+<label class="font-label-md text-label-md text-on-surface flex items-center gap-xs" for="status">
+                                    Operational Status <span class="text-error">*</span>
+</label>
+<div class="relative">
+<select class="w-full bg-surface-container-lowest border border-outline-variant rounded-lg px-md py-sm font-body-md text-body-md text-on-background appearance-none focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors" id="status">
+<option value="ready">Ready</option>
+<option selected="" value="paused">Paused</option>
+<option value="error">Error</option>
+</select>
+<span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-on-surface-variant pointer-events-none">expand_more</span>
+</div>
+</div>
+<!-- System Tags -->
+<div class="flex flex-col gap-xs">
+<label class="font-label-md text-label-md text-on-surface" for="tags">
+                                    System Tags
+                                </label>
+<div class="relative">
+<input class="w-full bg-surface-container-lowest border border-outline-variant rounded-lg px-md py-sm pl-10 font-body-md text-body-md text-on-background focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors" id="tags" placeholder="Add tags..." type="text"/>
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-[18px]">sell</span>
+</div>
+<div class="flex flex-wrap gap-xs mt-sm">
+<span class="inline-flex items-center gap-xs px-sm py-0.5 rounded bg-surface-container-high border border-outline-variant font-mono-data text-mono-data text-on-surface-variant">
+                                        node-alpha
+                                        <button class="hover:text-error transition-colors" type="button"><span class="material-symbols-outlined text-[14px]">close</span></button>
+</span>
+<span class="inline-flex items-center gap-xs px-sm py-0.5 rounded bg-surface-container-high border border-outline-variant font-mono-data text-mono-data text-on-surface-variant">
+                                        maintenance
+                                        <button class="hover:text-error transition-colors" type="button"><span class="material-symbols-outlined text-[14px]">close</span></button>
+</span>
+</div>
+</div>
+</div>
+</form>
+<!-- Form Footer / Actions -->
+<div class="bg-surface-container p-lg border-t border-outline-variant flex flex-col sm:flex-row items-center justify-between gap-md">
+<div class="font-body-sm text-body-sm text-on-surface-variant flex items-center gap-xs">
+<span class="material-symbols-outlined text-[14px]">sync</span>
+                            Last auto-saved 2m ago
+                        </div>
+<div class="flex items-center gap-md w-full sm:w-auto">
+<button class="flex-1 sm:flex-none h-8 px-lg border border-outline-variant rounded text-on-surface font-label-md text-label-md hover:bg-surface-container-high transition-colors active:scale-95" id="ACT_CANCEL_EDIT" type="button">
+                                Cancel
+                            </button>
+<button class="flex-1 sm:flex-none h-8 px-lg bg-primary text-on-primary rounded font-label-md text-label-md hover:bg-primary-container hover:text-on-primary-container transition-colors active:scale-95 shadow-sm shadow-primary/20" id="ACT_SAVE_RECORD" type="submit">
+                                Save Record
+                            </button>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>

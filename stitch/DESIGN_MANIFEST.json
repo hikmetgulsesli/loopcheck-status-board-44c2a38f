@@ -1,0 +1,49 @@
+[
+  {
+    "screenId": "8ab0d75de9ed45f6858905ea16c49b09",
+    "title": "Record Editor - LoopCheck Status Board",
+    "htmlFile": "8ab0d75de9ed45f6858905ea16c49b09.html",
+    "deviceType": "DESKTOP",
+    "htmlUrl": "https://contribution.usercontent.google.com/download?c=CgthaWRhX2NvZGVmeBJ7Eh1hcHBfY29tcGFuaW9uX2dlbmVyYXRlZF9maWxlcxpaCiVodG1sXzhkODE1MTg5ZWY5YzQ1OTc4YjZmODljYWNhNzczNjVmEgsSBxCN19Wi9xcYAZIBIwoKcHJvamVjdF9pZBIVQhM0ODMyMDY0ODUyNzY0MDg2ODI5&filename=&opi=96797242",
+    "localHtml": "/Users/setrox/projects/loopcheck-status-board-44c2a38f/stitch/8ab0d75de9ed45f6858905ea16c49b09.html",
+    "surfaceIds": [
+      "SURF_RECORD_EDITOR",
+      "SURF_STATUS_BOARD"
+    ]
+  },
+  {
+    "screenId": "938867aed3f14bb5aa6819549842f7c1",
+    "title": "Status Board - LoopCheck Status Board",
+    "htmlFile": "938867aed3f14bb5aa6819549842f7c1.html",
+    "deviceType": "DESKTOP",
+    "htmlUrl": "https://contribution.usercontent.google.com/download?c=CgthaWRhX2NvZGVmeBJ7Eh1hcHBfY29tcGFuaW9uX2dlbmVyYXRlZF9maWxlcxpaCiVodG1sXzQ0OTQxN2MyNjUzZDQ4MDU5ZDRjZDllMDFmY2FmMzNmEgsSBxCN19Wi9xcYAZIBIwoKcHJvamVjdF9pZBIVQhM0ODMyMDY0ODUyNzY0MDg2ODI5&filename=&opi=96797242",
+    "localHtml": "/Users/setrox/projects/loopcheck-status-board-44c2a38f/stitch/938867aed3f14bb5aa6819549842f7c1.html",
+    "surfaceIds": [
+      "SURF_STATUS_BOARD"
+    ]
+  },
+  {
+    "screenId": "5db48a31e7464e52aba0033ec86a13d0",
+    "title": "Insights - LoopCheck Status Board",
+    "htmlFile": "5db48a31e7464e52aba0033ec86a13d0.html",
+    "deviceType": "DESKTOP",
+    "htmlUrl": "https://contribution.usercontent.google.com/download?c=CgthaWRhX2NvZGVmeBJ7Eh1hcHBfY29tcGFuaW9uX2dlbmVyYXRlZF9maWxlcxpaCiVodG1sX2RkNDJjZTA1N2I2NjQ4OWJhZmQ3YTU2ZmJiNDc2YmQ5EgsSBxCN19Wi9xcYAZIBIwoKcHJvamVjdF9pZBIVQhM0ODMyMDY0ODUyNzY0MDg2ODI5&filename=&opi=96797242",
+    "localHtml": "/Users/setrox/projects/loopcheck-status-board-44c2a38f/stitch/5db48a31e7464e52aba0033ec86a13d0.html",
+    "surfaceIds": [
+      "SURF_STATUS_BOARD",
+      "SURF_INSIGHTS"
+    ]
+  },
+  {
+    "screenId": "ae5c2fbd029544bea36cb72248f50c4f",
+    "title": "Record Operations - LoopCheck Status Board",
+    "htmlFile": "ae5c2fbd029544bea36cb72248f50c4f.html",
+    "deviceType": "DESKTOP",
+    "htmlUrl": "https://contribution.usercontent.google.com/download?c=CgthaWRhX2NvZGVmeBJ7Eh1hcHBfY29tcGFuaW9uX2dlbmVyYXRlZF9maWxlcxpaCiVodG1sXzYyN2IyNWMxMDNiYjQ2MWM4NjI5MGQzMzExNjM5NjIwEgsSBxCN19Wi9xcYAZIBIwoKcHJvamVjdF9pZBIVQhM0ODMyMDY0ODUyNzY0MDg2ODI5&filename=&opi=96797242",
+    "localHtml": "/Users/setrox/projects/loopcheck-status-board-44c2a38f/stitch/ae5c2fbd029544bea36cb72248f50c4f.html",
+    "surfaceIds": [
+      "SURF_RECORD_OPERATIONS",
+      "SURF_STATUS_BOARD"
+    ]
+  }
+]

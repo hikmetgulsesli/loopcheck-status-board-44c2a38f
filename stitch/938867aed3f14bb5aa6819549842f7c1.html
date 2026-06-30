@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>LoopCheck Status Board</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container": "#171f33",
+                        "on-error-container": "#ffdad6",
+                        "on-primary-fixed": "#00174b",
+                        "on-surface-variant": "#c3c6d7",
+                        "secondary-container": "#3a4a5f",
+                        "on-background": "#dae2fd",
+                        "inverse-surface": "#dae2fd",
+                        "secondary": "#b7c8e1",
+                        "primary-fixed-dim": "#b4c5ff",
+                        "on-secondary": "#213145",
+                        "secondary-fixed": "#d3e4fe",
+                        "surface": "#0b1326",
+                        "tertiary-fixed-dim": "#ffb596",
+                        "on-surface": "#dae2fd",
+                        "surface-container-lowest": "#060e20",
+                        "primary-fixed": "#dbe1ff",
+                        "secondary-fixed-dim": "#b7c8e1",
+                        "on-tertiary-fixed": "#360f00",
+                        "on-error": "#690005",
+                        "tertiary-fixed": "#ffdbcd",
+                        "on-primary-fixed-variant": "#003ea8",
+                        "surface-dim": "#0b1326",
+                        "surface-container-low": "#131b2e",
+                        "on-tertiary-container": "#ffede6",
+                        "inverse-on-surface": "#283044",
+                        "on-primary": "#002a78",
+                        "surface-bright": "#31394d",
+                        "on-primary-container": "#eeefff",
+                        "outline-variant": "#434655",
+                        "error": "#ffb4ab",
+                        "surface-tint": "#b4c5ff",
+                        "on-secondary-container": "#a9bad3",
+                        "error-container": "#93000a",
+                        "background": "#0b1326",
+                        "primary": "#b4c5ff",
+                        "on-secondary-fixed-variant": "#38485d",
+                        "tertiary": "#ffb596",
+                        "inverse-primary": "#0053db",
+                        "surface-container-highest": "#2d3449",
+                        "on-tertiary": "#581e00",
+                        "on-tertiary-fixed-variant": "#7d2d00",
+                        "on-secondary-fixed": "#0b1c30",
+                        "surface-container-high": "#222a3d",
+                        "outline": "#8d90a0",
+                        "surface-variant": "#2d3449",
+                        "primary-container": "#2563eb",
+                        "tertiary-container": "#bc4800"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "xl": "32px",
+                        "margin-mobile": "16px",
+                        "md": "16px",
+                        "base": "4px",
+                        "gutter": "12px",
+                        "lg": "24px",
+                        "sm": "8px",
+                        "margin-desktop": "24px",
+                        "xs": "4px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Inter"],
+                        "label-md": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "body-md": ["Inter"],
+                        "mono-data": ["JetBrains Mono"],
+                        "label-caps": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "headline-sm": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["18px", { "lineHeight": "24px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.01em", "fontWeight": "500" }],
+                        "headline-lg": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+                        "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "mono-data": ["12px", { "lineHeight": "16px", "fontWeight": "400" }],
+                        "label-caps": ["10px", { "lineHeight": "12px", "letterSpacing": "0.05em", "fontWeight": "700" }],
+                        "body-sm": ["12px", { "lineHeight": "16px", "fontWeight": "400" }],
+                        "headline-sm": ["14px", { "lineHeight": "20px", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .kanban-col-scroll::-webkit-scrollbar {
+            width: 4px;
+        }
+        .kanban-col-scroll::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .kanban-col-scroll::-webkit-scrollbar-thumb {
+            background-color: #434655;
+            border-radius: 2px;
+        }
+        .status-pip {
+            animation: pulse-ring 2s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+        }
+        @keyframes pulse-ring {
+            0% { box-shadow: 0 0 0 0 rgba(180, 197, 255, 0.7); }
+            70% { box-shadow: 0 0 0 6px rgba(180, 197, 255, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(180, 197, 255, 0); }
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md antialiased overflow-hidden selection:bg-primary-container selection:text-on-primary-container">
+<!-- SideNavBar -->
+<nav class="bg-surface-container-low h-screen w-64 fixed left-0 top-0 border-r border-outline-variant flex flex-col h-full py-lg z-20 shadow-none">
+<div class="px-md mb-xl flex items-center gap-md">
+<div class="w-8 h-8 rounded-full bg-primary-container flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-on-primary-container text-[20px]">hub</span>
+</div>
+<div>
+<h1 class="font-headline-md text-headline-md text-primary">LoopCheck</h1>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Operational Hub</p>
+</div>
+</div>
+<div class="flex-1 px-sm space-y-xs overflow-y-auto">
+<a class="flex items-center gap-md px-md py-sm rounded text-on-surface-variant hover:bg-surface-container-high transition-colors active:scale-95 transition-transform group" href="#">
+<span class="material-symbols-outlined text-[20px] group-hover:text-primary transition-colors">settings_remote</span>
+<span class="font-body-md text-body-md">Operations</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm rounded text-primary font-bold border-r-2 border-primary bg-surface-container-high hover:bg-surface-container-high transition-colors active:scale-95 transition-transform group" href="#">
+<span class="material-symbols-outlined text-[20px]">dashboard</span>
+<span class="font-body-md text-body-md">Status Board</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm rounded text-on-surface-variant hover:bg-surface-container-high transition-colors active:scale-95 transition-transform group" href="#">
+<span class="material-symbols-outlined text-[20px] group-hover:text-primary transition-colors">analytics</span>
+<span class="font-body-md text-body-md">Insights</span>
+</a>
+</div>
+<div class="mt-auto px-sm pt-md border-t border-outline-variant/50">
+<a class="flex items-center gap-md px-md py-sm rounded text-on-surface-variant hover:bg-surface-container-high transition-colors active:scale-95 transition-transform group" href="#">
+<span class="material-symbols-outlined text-[20px] group-hover:text-primary transition-colors">settings</span>
+<span class="font-body-md text-body-md">Settings</span>
+</a>
+</div>
+</nav>
+<!-- TopNavBar -->
+<header class="bg-surface fixed top-0 right-0 left-64 h-14 border-b border-outline-variant flex justify-between items-center px-lg h-full z-10 shadow-none">
+<div class="flex items-center">
+<h2 class="font-headline-lg text-headline-lg text-on-background">LoopCheck Status Board</h2>
+</div>
+<div class="flex items-center gap-lg">
+<div class="relative w-64 group">
+<span class="material-symbols-outlined absolute left-sm top-1/2 -translate-y-1/2 text-on-surface-variant text-[18px]">search</span>
+<input class="w-full bg-surface-container-low border border-outline-variant rounded h-8 pl-8 pr-sm text-body-sm font-body-sm text-on-background placeholder:text-on-surface-variant focus:border-primary focus:ring-0 transition-colors" placeholder="Search records..." type="text"/>
+</div>
+<div class="flex items-center gap-sm">
+<button class="w-8 h-8 rounded flex items-center justify-center text-on-surface-variant hover:text-primary hover:bg-surface-container-high transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-[20px]">notifications</span>
+</button>
+<button class="w-8 h-8 rounded flex items-center justify-center text-on-surface-variant hover:text-primary hover:bg-surface-container-high transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-[20px]">account_circle</span>
+</button>
+</div>
+<button class="bg-primary-container text-on-primary-container font-label-md text-label-md px-md h-8 rounded hover:bg-primary transition-colors cursor-pointer flex items-center gap-xs">
+<span class="material-symbols-outlined text-[16px]">add</span>
+                Create Record
+            </button>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="ml-64 mt-14 p-lg h-[calc(100vh-56px)] overflow-hidden flex flex-col bg-surface-container-lowest">
+<!-- Board Toolbar -->
+<div class="flex items-center justify-between mb-lg shrink-0">
+<div class="flex items-center gap-md">
+<div class="flex items-center gap-xs bg-surface-container-low rounded border border-outline-variant p-[2px]">
+<button class="px-md py-xs rounded bg-surface-container-high text-on-surface font-label-md text-label-md shadow-sm">Board View</button>
+<button class="px-md py-xs rounded text-on-surface-variant hover:text-on-surface font-label-md text-label-md transition-colors">List View</button>
+</div>
+<div class="h-6 w-[1px] bg-outline-variant"></div>
+<div class="flex gap-sm">
+<button class="flex items-center gap-xs px-sm py-xs rounded border border-outline-variant text-on-surface-variant hover:border-outline hover:text-on-surface transition-colors font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-[16px]">filter_list</span> Filter
+                    </button>
+<button class="flex items-center gap-xs px-sm py-xs rounded border border-outline-variant text-on-surface-variant hover:border-outline hover:text-on-surface transition-colors font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-[16px]">sort</span> Sort
+                    </button>
+</div>
+</div>
+<div class="flex items-center gap-md text-on-surface-variant font-mono-data text-mono-data">
+<span>Total: 42</span>
+<span class="w-1 h-1 rounded-full bg-outline-variant"></span>
+<span>Active: <span class="text-primary">18</span></span>
+<span class="w-1 h-1 rounded-full bg-outline-variant"></span>
+<span>Errors: <span class="text-error">3</span></span>
+</div>
+</div>
+<!-- Kanban Grid -->
+<div class="flex-1 grid grid-cols-4 gap-gutter min-w-[1000px] overflow-x-auto pb-sm">
+<!-- Ready Column -->
+<div class="flex flex-col bg-surface-container rounded-lg border border-outline-variant overflow-hidden">
+<div class="p-sm border-b border-outline-variant flex items-center justify-between bg-surface-container-low shrink-0">
+<div class="flex items-center gap-sm">
+<div class="w-2 h-2 rounded-full bg-primary status-pip"></div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Ready</h3>
+</div>
+<span class="bg-surface-variant px-2 py-0.5 rounded text-on-surface-variant font-mono-data text-mono-data text-[10px]">12</span>
+</div>
+<div class="flex-1 p-sm space-y-sm overflow-y-auto kanban-col-scroll">
+<!-- Card 1 -->
+<div class="bg-surface rounded border border-outline-variant p-sm hover:border-primary transition-colors cursor-pointer group">
+<div class="flex justify-between items-start mb-sm">
+<span class="font-mono-data text-mono-data text-on-surface-variant text-[10px]">REC-8492</span>
+<span class="bg-surface-variant text-on-surface font-label-caps text-label-caps px-1.5 py-0.5 rounded border border-outline-variant">P0</span>
+</div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface mb-xs leading-tight">Data Sync Normalization</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-md line-clamp-2">Awaiting final validation before pipeline integration.</p>
+<div class="flex items-center justify-between mt-auto">
+<div class="flex items-center gap-xs">
+<img class="w-5 h-5 rounded-full object-cover border border-outline-variant" data-alt="A small, professional corporate headshot of a software engineer in a dimly lit, high-tech server room with blue LED accents, modern minimal aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB62B0zZaqR_pLgzE0HXwo4rCFNds43LeUJYPqUoqF7pRhkwAfYtxYCvIH-oMjgtkD5oV9wkHCfzzLSC1Ej9K-77FtXjNl9KZ1ItBS6jphCqM75EVsSu1Vcy-kYk8bN_P_2slLlvGAy91xSdL0odsohPVSIN5IG-C66Qt-W24ncPxnPHZS4ExcDuQH8kV5nSBCBVpVrAAwDEBltShi5O1tvMKSHON93MkgmwBo3snm2ViO0ta80uFHadstMhxDJJOLyAXZ7KY00hms"/>
+<span class="font-body-sm text-body-sm text-on-surface-variant text-[11px]">2h idle</span>
+</div>
+<button class="w-6 h-6 rounded flex items-center justify-center border border-outline-variant text-on-surface-variant hover:bg-primary-container hover:text-on-primary-container hover:border-primary-container transition-colors opacity-0 group-hover:opacity-100">
+<span class="material-symbols-outlined text-[14px]">play_arrow</span>
+</button>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="bg-surface rounded border border-outline-variant p-sm hover:border-primary transition-colors cursor-pointer group">
+<div class="flex justify-between items-start mb-sm">
+<span class="font-mono-data text-mono-data text-on-surface-variant text-[10px]">REC-8490</span>
+<span class="bg-surface-variant text-on-surface font-label-caps text-label-caps px-1.5 py-0.5 rounded border border-outline-variant">P2</span>
+</div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface mb-xs leading-tight">Client Auth Token Refresh</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-md line-clamp-2">Scheduled automated rotation.</p>
+<div class="flex items-center justify-between mt-auto">
+<div class="flex items-center gap-xs">
+<div class="w-5 h-5 rounded-full bg-secondary-container flex items-center justify-center text-on-surface font-label-caps text-[9px]">JS</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant text-[11px]">1d idle</span>
+</div>
+<button class="w-6 h-6 rounded flex items-center justify-center border border-outline-variant text-on-surface-variant hover:bg-primary-container hover:text-on-primary-container hover:border-primary-container transition-colors opacity-0 group-hover:opacity-100">
+<span class="material-symbols-outlined text-[14px]">play_arrow</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- In Review Column -->
+<div class="flex flex-col bg-surface-container rounded-lg border border-outline-variant overflow-hidden opacity-90">
+<div class="p-sm border-b border-outline-variant flex items-center justify-between bg-surface-container-low shrink-0">
+<div class="flex items-center gap-sm">
+<div class="w-2 h-2 rounded-full bg-secondary"></div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">In Review</h3>
+</div>
+<span class="bg-surface-variant px-2 py-0.5 rounded text-on-surface-variant font-mono-data text-mono-data text-[10px]">8</span>
+</div>
+<div class="flex-1 p-sm space-y-sm overflow-y-auto kanban-col-scroll">
+<!-- Card 3 -->
+<div class="bg-surface rounded border border-outline-variant p-sm hover:border-secondary transition-colors cursor-pointer group">
+<div class="flex justify-between items-start mb-sm">
+<span class="font-mono-data text-mono-data text-on-surface-variant text-[10px]">REC-8477</span>
+<span class="bg-surface-variant text-on-surface font-label-caps text-label-caps px-1.5 py-0.5 rounded border border-outline-variant">P1</span>
+</div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface mb-xs leading-tight">API Gateway Latency Spike</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-md line-clamp-2">Analyzing logs from US-East region.</p>
+<div class="flex items-center justify-between mt-auto">
+<div class="flex items-center gap-xs">
+<img class="w-5 h-5 rounded-full object-cover border border-outline-variant" data-alt="A small avatar image of a data analyst in a dark control room setting, sharp focus, cinematic lighting, corporate professional style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBSYgfOwkYYbBGjBW3h_-wBWoCfLdy46kBBIadkWgKWZx4MtHyQuk7qInjTsJVRMHh0Qre2I4fAgLFmbfgzsQkIK7moz7loXIsY4OAvpqym9OexWwcBgp7n4xFdSBjeOQe72WYWEW-XqChCTwGIm7-wkbolZuN_xT4Wg6CBn7mcEMHXKXDPDoyzuZcBOznkkutfzIEqShx4BSPtWgNLFLEZoAEI63izUTy2FNIg8OXAWbsnwOrhdCpYH5oVyYUmVJxjydEImHInJS4"/>
+<span class="font-body-sm text-body-sm text-on-surface-variant text-[11px] text-tertiary">3d idle</span>
+</div>
+<div class="flex gap-1">
+<span class="w-2 h-2 rounded-full bg-secondary-container"></span>
+<span class="w-2 h-2 rounded-full bg-secondary-container"></span>
+<span class="w-2 h-2 rounded-full bg-outline-variant"></span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Paused Column -->
+<div class="flex flex-col bg-surface-container rounded-lg border border-outline-variant overflow-hidden opacity-75">
+<div class="p-sm border-b border-outline-variant flex items-center justify-between bg-surface-container-low shrink-0">
+<div class="flex items-center gap-sm">
+<div class="w-2 h-2 rounded-full bg-outline"></div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Paused</h3>
+</div>
+<span class="bg-surface-variant px-2 py-0.5 rounded text-on-surface-variant font-mono-data text-mono-data text-[10px]">19</span>
+</div>
+<div class="flex-1 p-sm space-y-sm overflow-y-auto kanban-col-scroll">
+<!-- Card 4 -->
+<div class="bg-surface rounded border border-outline-variant border-dashed p-sm hover:border-outline transition-colors cursor-pointer group">
+<div class="flex justify-between items-start mb-sm">
+<span class="font-mono-data text-mono-data text-on-surface-variant text-[10px]">REC-8450</span>
+<span class="bg-surface-variant text-on-surface font-label-caps text-label-caps px-1.5 py-0.5 rounded border border-outline-variant">P2</span>
+</div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface mb-xs leading-tight text-on-surface-variant">Legacy DB Migration</h4>
+<div class="flex items-center gap-xs mb-md mt-xs">
+<span class="material-symbols-outlined text-[14px] text-tertiary">warning</span>
+<p class="font-body-sm text-body-sm text-tertiary text-[11px]">Blocked by external vendor</p>
+</div>
+<div class="flex items-center justify-between mt-auto">
+<div class="flex items-center gap-xs">
+<div class="w-5 h-5 rounded-full bg-surface-bright flex items-center justify-center text-on-surface font-label-caps text-[9px]">AL</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant text-[11px]">14d idle</span>
+</div>
+<button class="w-6 h-6 rounded flex items-center justify-center border border-outline-variant text-on-surface-variant hover:bg-surface-variant hover:text-on-surface transition-colors opacity-0 group-hover:opacity-100">
+<span class="material-symbols-outlined text-[14px]">pause</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Error Column -->
+<div class="flex flex-col bg-surface-container rounded-lg border border-error-container overflow-hidden relative">
+<div class="absolute top-0 left-0 w-full h-[2px] bg-error"></div>
+<div class="p-sm border-b border-error-container flex items-center justify-between bg-error-container/10 shrink-0">
+<div class="flex items-center gap-sm">
+<div class="w-2 h-2 rounded-full bg-error"></div>
+<h3 class="font-headline-sm text-headline-sm text-error">Error</h3>
+</div>
+<span class="bg-error-container/20 px-2 py-0.5 rounded text-error font-mono-data text-mono-data text-[10px] border border-error-container/50">3</span>
+</div>
+<div class="flex-1 p-sm space-y-sm overflow-y-auto kanban-col-scroll">
+<!-- Card 5 -->
+<div class="bg-surface rounded border border-error-container p-sm hover:border-error transition-colors cursor-pointer group shadow-[0_0_10px_rgba(255,180,171,0.05)]">
+<div class="flex justify-between items-start mb-sm">
+<span class="font-mono-data text-mono-data text-error/80 text-[10px]">REC-8495</span>
+<span class="bg-error-container text-on-error-container font-label-caps text-label-caps px-1.5 py-0.5 rounded border border-error">P0</span>
+</div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface mb-xs leading-tight">Payment Gateway Timeout</h4>
+<p class="font-mono-data text-mono-data text-error/90 mb-md text-[10px] bg-error-container/10 p-1 rounded">Err 504: Upstream disconnect</p>
+<div class="flex items-center justify-between mt-auto">
+<div class="flex items-center gap-xs">
+<img class="w-5 h-5 rounded-full object-cover border border-error-container" data-alt="A tiny profile picture of a distressed system administrator in a dark server room illuminated by red warning lights, intense cinematic feel." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBY24zvzlmMhCuJcfTuXMeG0Jx6YZL-90-QCI6g_y81Ja1ARpfSwSjnaWXV5YbZdjWGzRcwKd8LHyGB7Cgg_KHn4FK5YYebQ1ehbAb23rWFo13rDFCbE2IdkOLqIW-V8IFjVr08E1-jRyJQMY_GDzLN471HTF7Soy1IJBNMurVhW3XYfx1Rz_rYjnWAi5bdio-4fvY-lvCRDqiZolBXHaOVAYEqIOWoiUypaUaAw-DbYdIXhZCvVx877RHT_g1PT93DjEVyMAXAPbw"/>
+<span class="font-body-sm text-body-sm text-error text-[11px] font-bold">15m idle</span>
+</div>
+<button class="w-6 h-6 rounded flex items-center justify-center border border-error-container text-error hover:bg-error-container hover:text-on-error-container transition-colors">
+<span class="material-symbols-outlined text-[14px]">refresh</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</body></html>

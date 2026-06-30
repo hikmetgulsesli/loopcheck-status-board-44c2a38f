@@ -1,0 +1,41 @@
+[
+  {
+    "screenId": "8ab0d75de9ed45f6858905ea16c49b09",
+    "name": "Record Editor - LoopCheck Status Board",
+    "type": "form",
+    "description": "Record Editor - LoopCheck Status Board screen",
+    "surfaceIds": [
+      "SURF_RECORD_EDITOR",
+      "SURF_STATUS_BOARD"
+    ]
+  },
+  {
+    "screenId": "938867aed3f14bb5aa6819549842f7c1",
+    "name": "Status Board - LoopCheck Status Board",
+    "type": "app-screen",
+    "description": "Status Board - LoopCheck Status Board screen",
+    "surfaceIds": [
+      "SURF_STATUS_BOARD"
+    ]
+  },
+  {
+    "screenId": "5db48a31e7464e52aba0033ec86a13d0",
+    "name": "Insights - LoopCheck Status Board",
+    "type": "app-screen",
+    "description": "Insights - LoopCheck Status Board screen",
+    "surfaceIds": [
+      "SURF_STATUS_BOARD",
+      "SURF_INSIGHTS"
+    ]
+  },
+  {
+    "screenId": "ae5c2fbd029544bea36cb72248f50c4f",
+    "name": "Record Operations - LoopCheck Status Board",
+    "type": "app-screen",
+    "description": "Record Operations - LoopCheck Status Board screen",
+    "surfaceIds": [
+      "SURF_RECORD_OPERATIONS",
+      "SURF_STATUS_BOARD"
+    ]
+  }
+]
