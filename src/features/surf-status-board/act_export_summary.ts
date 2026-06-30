@@ -28,11 +28,11 @@ export function makeExportSummaryAction(
     const url = URL.createObjectURL(blob);
     const anchor = document.createElement('a');
     anchor.href = url;
-    anchor.download = options?.filename ?? 'loopcheck-summary.json';
+    anchor.download = options?.filename || 'loopcheck-summary.json';
     document.body.appendChild(anchor);
     anchor.click();
     document.body.removeChild(anchor);
-    URL.revokeObjectURL(url);
+    setTimeout(() => URL.revokeObjectURL(url), 100);
 
     options?.onExport?.();
   };
