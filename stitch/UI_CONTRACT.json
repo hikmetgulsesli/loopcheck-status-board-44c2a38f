@@ -1,0 +1,785 @@
+[
+  {
+    "screenId": "8ab0d75de9ed45f6858905ea16c49b09",
+    "screenTitle": "Record Editor - LoopCheck Status Board",
+    "deviceType": "DESKTOP",
+    "elements": [
+      {
+        "type": "link",
+        "label": "Operations",
+        "href": "#",
+        "line": 133
+      },
+      {
+        "type": "link",
+        "label": "Status Board",
+        "href": "#",
+        "line": 138
+      },
+      {
+        "type": "link",
+        "label": "Insights",
+        "href": "#",
+        "line": 142
+      },
+      {
+        "type": "link",
+        "label": "settings",
+        "href": "#",
+        "line": 149
+      },
+      {
+        "type": "button",
+        "label": "menu",
+        "line": 161
+      },
+      {
+        "type": "button",
+        "label": "notifications",
+        "line": 174
+      },
+      {
+        "type": "button",
+        "label": "account_circle",
+        "line": 178
+      },
+      {
+        "type": "button",
+        "label": "Create Record",
+        "line": 183
+      },
+      {
+        "type": "button",
+        "label": "close",
+        "line": 248
+      },
+      {
+        "type": "button",
+        "label": "close",
+        "line": 252
+      },
+      {
+        "type": "button",
+        "label": "Cancel",
+        "line": 265
+      },
+      {
+        "type": "button",
+        "label": "Save Record",
+        "line": 268
+      },
+      {
+        "type": "input",
+        "label": "Search records...",
+        "inputType": "text",
+        "placeholder": "Search records...",
+        "line": 170
+      },
+      {
+        "type": "input",
+        "label": "Enter record identifier",
+        "inputType": "text",
+        "placeholder": "Enter record identifier",
+        "line": 207
+      },
+      {
+        "type": "input",
+        "label": "Describe the operational context...",
+        "inputType": "textarea",
+        "placeholder": "Describe the operational context...",
+        "line": 218
+      },
+      {
+        "type": "input",
+        "label": "select",
+        "inputType": "select",
+        "line": 228
+      },
+      {
+        "type": "input",
+        "label": "Add tags...",
+        "inputType": "text",
+        "placeholder": "Add tags...",
+        "line": 242
+      },
+      {
+        "type": "form",
+        "label": "form",
+        "line": 201
+      }
+    ],
+    "navigation": [
+      {
+        "type": "link",
+        "label": "Operations",
+        "href": "#",
+        "line": 133
+      },
+      {
+        "type": "link",
+        "label": "Status Board",
+        "href": "#",
+        "line": 138
+      },
+      {
+        "type": "link",
+        "label": "Insights",
+        "href": "#",
+        "line": 142
+      },
+      {
+        "type": "link",
+        "label": "settings",
+        "href": "#",
+        "line": 149
+      }
+    ],
+    "buttons": [
+      {
+        "type": "button",
+        "label": "menu",
+        "line": 161
+      },
+      {
+        "type": "button",
+        "label": "notifications",
+        "line": 174
+      },
+      {
+        "type": "button",
+        "label": "account_circle",
+        "line": 178
+      },
+      {
+        "type": "button",
+        "label": "Create Record",
+        "line": 183
+      },
+      {
+        "type": "button",
+        "label": "close",
+        "line": 248
+      },
+      {
+        "type": "button",
+        "label": "close",
+        "line": 252
+      },
+      {
+        "type": "button",
+        "label": "Cancel",
+        "line": 265
+      },
+      {
+        "type": "button",
+        "label": "Save Record",
+        "line": 268
+      }
+    ],
+    "inputs": [
+      {
+        "type": "input",
+        "label": "Search records...",
+        "inputType": "text",
+        "placeholder": "Search records...",
+        "line": 170
+      },
+      {
+        "type": "input",
+        "label": "Enter record identifier",
+        "inputType": "text",
+        "placeholder": "Enter record identifier",
+        "line": 207
+      },
+      {
+        "type": "input",
+        "label": "Describe the operational context...",
+        "inputType": "textarea",
+        "placeholder": "Describe the operational context...",
+        "line": 218
+      },
+      {
+        "type": "input",
+        "label": "select",
+        "inputType": "select",
+        "line": 228
+      },
+      {
+        "type": "input",
+        "label": "Add tags...",
+        "inputType": "text",
+        "placeholder": "Add tags...",
+        "line": 242
+      }
+    ],
+    "hardcodedData": [],
+    "totalInteractive": 18,
+    "requiresRouter": false,
+    "requiresDragDrop": false
+  },
+  {
+    "screenId": "938867aed3f14bb5aa6819549842f7c1",
+    "screenTitle": "Status Board - LoopCheck Status Board",
+    "deviceType": "DESKTOP",
+    "elements": [
+      {
+        "type": "link",
+        "label": "Operations",
+        "href": "#",
+        "line": 142
+      },
+      {
+        "type": "link",
+        "label": "Status Board",
+        "href": "#",
+        "line": 146
+      },
+      {
+        "type": "link",
+        "label": "Insights",
+        "href": "#",
+        "line": 150
+      },
+      {
+        "type": "link",
+        "label": "settings",
+        "href": "#",
+        "line": 156
+      },
+      {
+        "type": "button",
+        "label": "notifications",
+        "line": 173
+      },
+      {
+        "type": "button",
+        "label": "account_circle",
+        "line": 176
+      },
+      {
+        "type": "button",
+        "label": "Create Record",
+        "line": 180
+      },
+      {
+        "type": "button",
+        "label": "Board View",
+        "line": 192
+      },
+      {
+        "type": "button",
+        "label": "List View",
+        "line": 193
+      },
+      {
+        "type": "button",
+        "label": "Filter",
+        "line": 197
+      },
+      {
+        "type": "button",
+        "label": "sort",
+        "line": 200
+      },
+      {
+        "type": "button",
+        "label": "play_arrow",
+        "line": 238
+      },
+      {
+        "type": "button",
+        "label": "play_arrow",
+        "line": 256
+      },
+      {
+        "type": "button",
+        "label": "pause",
+        "line": 321
+      },
+      {
+        "type": "button",
+        "label": "refresh",
+        "line": 352
+      },
+      {
+        "type": "input",
+        "label": "Search records...",
+        "inputType": "text",
+        "placeholder": "Search records...",
+        "line": 170
+      }
+    ],
+    "navigation": [
+      {
+        "type": "link",
+        "label": "Operations",
+        "href": "#",
+        "line": 142
+      },
+      {
+        "type": "link",
+        "label": "Status Board",
+        "href": "#",
+        "line": 146
+      },
+      {
+        "type": "link",
+        "label": "Insights",
+        "href": "#",
+        "line": 150
+      },
+      {
+        "type": "link",
+        "label": "settings",
+        "href": "#",
+        "line": 156
+      }
+    ],
+    "buttons": [
+      {
+        "type": "button",
+        "label": "notifications",
+        "line": 173
+      },
+      {
+        "type": "button",
+        "label": "account_circle",
+        "line": 176
+      },
+      {
+        "type": "button",
+        "label": "Create Record",
+        "line": 180
+      },
+      {
+        "type": "button",
+        "label": "Board View",
+        "line": 192
+      },
+      {
+        "type": "button",
+        "label": "List View",
+        "line": 193
+      },
+      {
+        "type": "button",
+        "label": "Filter",
+        "line": 197
+      },
+      {
+        "type": "button",
+        "label": "sort",
+        "line": 200
+      },
+      {
+        "type": "button",
+        "label": "play_arrow",
+        "line": 238
+      },
+      {
+        "type": "button",
+        "label": "play_arrow",
+        "line": 256
+      },
+      {
+        "type": "button",
+        "label": "pause",
+        "line": 321
+      },
+      {
+        "type": "button",
+        "label": "refresh",
+        "line": 352
+      }
+    ],
+    "inputs": [
+      {
+        "type": "input",
+        "label": "Search records...",
+        "inputType": "text",
+        "placeholder": "Search records...",
+        "line": 170
+      }
+    ],
+    "hardcodedData": [],
+    "totalInteractive": 16,
+    "requiresRouter": false,
+    "requiresDragDrop": false
+  },
+  {
+    "screenId": "5db48a31e7464e52aba0033ec86a13d0",
+    "screenTitle": "Insights - LoopCheck Status Board",
+    "deviceType": "DESKTOP",
+    "elements": [
+      {
+        "type": "link",
+        "label": "Operations",
+        "href": "#",
+        "line": 203
+      },
+      {
+        "type": "link",
+        "label": "Status Board",
+        "href": "#",
+        "line": 207
+      },
+      {
+        "type": "link",
+        "label": "Insights",
+        "href": "#",
+        "line": 212
+      },
+      {
+        "type": "link",
+        "label": "settings",
+        "href": "#",
+        "line": 218
+      },
+      {
+        "type": "button",
+        "label": "notifications",
+        "line": 245
+      },
+      {
+        "type": "button",
+        "label": "account_circle",
+        "line": 248
+      },
+      {
+        "type": "button",
+        "label": "Create Record",
+        "line": 251
+      },
+      {
+        "type": "button",
+        "label": "Filter Insights",
+        "line": 266
+      },
+      {
+        "type": "button",
+        "label": "Export Summary",
+        "line": 270
+      },
+      {
+        "type": "button",
+        "label": "more_horiz",
+        "line": 323
+      },
+      {
+        "type": "button",
+        "label": "Review Queue",
+        "line": 371
+      },
+      {
+        "type": "input",
+        "label": "Search records...",
+        "inputType": "text",
+        "placeholder": "Search records...",
+        "line": 242
+      }
+    ],
+    "navigation": [
+      {
+        "type": "link",
+        "label": "Operations",
+        "href": "#",
+        "line": 203
+      },
+      {
+        "type": "link",
+        "label": "Status Board",
+        "href": "#",
+        "line": 207
+      },
+      {
+        "type": "link",
+        "label": "Insights",
+        "href": "#",
+        "line": 212
+      },
+      {
+        "type": "link",
+        "label": "settings",
+        "href": "#",
+        "line": 218
+      }
+    ],
+    "buttons": [
+      {
+        "type": "button",
+        "label": "notifications",
+        "line": 245
+      },
+      {
+        "type": "button",
+        "label": "account_circle",
+        "line": 248
+      },
+      {
+        "type": "button",
+        "label": "Create Record",
+        "line": 251
+      },
+      {
+        "type": "button",
+        "label": "Filter Insights",
+        "line": 266
+      },
+      {
+        "type": "button",
+        "label": "Export Summary",
+        "line": 270
+      },
+      {
+        "type": "button",
+        "label": "more_horiz",
+        "line": 323
+      },
+      {
+        "type": "button",
+        "label": "Review Queue",
+        "line": 371
+      }
+    ],
+    "inputs": [
+      {
+        "type": "input",
+        "label": "Search records...",
+        "inputType": "text",
+        "placeholder": "Search records...",
+        "line": 242
+      }
+    ],
+    "hardcodedData": [],
+    "totalInteractive": 12,
+    "requiresRouter": false,
+    "requiresDragDrop": false
+  },
+  {
+    "screenId": "ae5c2fbd029544bea36cb72248f50c4f",
+    "screenTitle": "Record Operations - LoopCheck Status Board",
+    "deviceType": "DESKTOP",
+    "elements": [
+      {
+        "type": "link",
+        "label": "Operations",
+        "href": "#",
+        "line": 202
+      },
+      {
+        "type": "link",
+        "label": "Status Board",
+        "href": "#",
+        "line": 208
+      },
+      {
+        "type": "link",
+        "label": "Insights",
+        "href": "#",
+        "line": 214
+      },
+      {
+        "type": "link",
+        "label": "settings",
+        "href": "#",
+        "line": 221
+      },
+      {
+        "type": "button",
+        "label": "notifications",
+        "line": 238
+      },
+      {
+        "type": "button",
+        "label": "account_circle",
+        "line": 241
+      },
+      {
+        "type": "button",
+        "label": "Create Record",
+        "line": 245
+      },
+      {
+        "type": "button",
+        "label": "filter_list",
+        "line": 323
+      },
+      {
+        "type": "button",
+        "label": "chevron_left",
+        "line": 409
+      },
+      {
+        "type": "button",
+        "label": "2",
+        "line": 413
+      },
+      {
+        "type": "button",
+        "label": "chevron_right",
+        "line": 417
+      },
+      {
+        "type": "button",
+        "label": "more_vert",
+        "line": 431
+      },
+      {
+        "type": "button",
+        "label": "pause",
+        "line": 483
+      },
+      {
+        "type": "button",
+        "label": "Restart",
+        "line": 486
+      },
+      {
+        "type": "input",
+        "label": "Search records...",
+        "inputType": "text",
+        "placeholder": "Search records...",
+        "line": 235
+      },
+      {
+        "type": "input",
+        "label": "checkbox",
+        "inputType": "checkbox",
+        "line": 299
+      },
+      {
+        "type": "input",
+        "label": "checkbox",
+        "inputType": "checkbox",
+        "line": 303
+      },
+      {
+        "type": "input",
+        "label": "checkbox",
+        "inputType": "checkbox",
+        "line": 307
+      },
+      {
+        "type": "input",
+        "label": "select",
+        "inputType": "select",
+        "line": 312
+      }
+    ],
+    "navigation": [
+      {
+        "type": "link",
+        "label": "Operations",
+        "href": "#",
+        "line": 202
+      },
+      {
+        "type": "link",
+        "label": "Status Board",
+        "href": "#",
+        "line": 208
+      },
+      {
+        "type": "link",
+        "label": "Insights",
+        "href": "#",
+        "line": 214
+      },
+      {
+        "type": "link",
+        "label": "settings",
+        "href": "#",
+        "line": 221
+      }
+    ],
+    "buttons": [
+      {
+        "type": "button",
+        "label": "notifications",
+        "line": 238
+      },
+      {
+        "type": "button",
+        "label": "account_circle",
+        "line": 241
+      },
+      {
+        "type": "button",
+        "label": "Create Record",
+        "line": 245
+      },
+      {
+        "type": "button",
+        "label": "filter_list",
+        "line": 323
+      },
+      {
+        "type": "button",
+        "label": "chevron_left",
+        "line": 409
+      },
+      {
+        "type": "button",
+        "label": "2",
+        "line": 413
+      },
+      {
+        "type": "button",
+        "label": "chevron_right",
+        "line": 417
+      },
+      {
+        "type": "button",
+        "label": "more_vert",
+        "line": 431
+      },
+      {
+        "type": "button",
+        "label": "pause",
+        "line": 483
+      },
+      {
+        "type": "button",
+        "label": "Restart",
+        "line": 486
+      }
+    ],
+    "inputs": [
+      {
+        "type": "input",
+        "label": "Search records...",
+        "inputType": "text",
+        "placeholder": "Search records...",
+        "line": 235
+      },
+      {
+        "type": "input",
+        "label": "checkbox",
+        "inputType": "checkbox",
+        "line": 299
+      },
+      {
+        "type": "input",
+        "label": "checkbox",
+        "inputType": "checkbox",
+        "line": 303
+      },
+      {
+        "type": "input",
+        "label": "checkbox",
+        "inputType": "checkbox",
+        "line": 307
+      },
+      {
+        "type": "input",
+        "label": "select",
+        "inputType": "select",
+        "line": 312
+      }
+    ],
+    "hardcodedData": [],
+    "totalInteractive": 19,
+    "requiresRouter": false,
+    "requiresDragDrop": false
+  }
+]
