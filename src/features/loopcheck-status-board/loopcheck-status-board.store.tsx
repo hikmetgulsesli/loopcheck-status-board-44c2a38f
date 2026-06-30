@@ -99,15 +99,17 @@ export function LoopcheckAppProvider({ children, initialState }: LoopcheckAppPro
   }, []);
 
   const setActivePanel = useCallback((panel: 'board' | 'list' | null) => {
-    setState((prev) => ({
-      ...prev,
-      activePanel: panel,
-      preferences: {
+    // Keep both the transient activePanel and the persisted preference in sync,
+    // including when panel is null, so hydration never diverges from runtime state.
+    setState((prev) => {
+      const next = { ...prev, activePanel: panel };
+      next.preferences = {
         ...prev.preferences,
         activePanel: panel,
-        viewMode: panel ?? prev.preferences.viewMode,
-      },
-    }));
+        viewMode: panel !== null ? panel : prev.preferences.viewMode,
+      };
+      return next;
+    });
   }, []);
 
   const updateDerived = useCallback((records: LoopcheckRecord[], prevState: LoopcheckAppState) => {
