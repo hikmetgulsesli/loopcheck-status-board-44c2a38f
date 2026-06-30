@@ -99,15 +99,15 @@ export function LoopcheckAppProvider({ children, initialState }: LoopcheckAppPro
   }, []);
 
   const setActivePanel = useCallback((panel: 'board' | 'list' | null) => {
-    setState((prev) => {
-      const next = { ...prev, activePanel: panel };
-      next.preferences = {
+    setState((prev) => ({
+      ...prev,
+      activePanel: panel,
+      preferences: {
         ...prev.preferences,
         activePanel: panel,
-        viewMode: panel !== null ? panel : prev.preferences.viewMode,
-      };
-      return next;
-    });
+        viewMode: panel ?? prev.preferences.viewMode,
+      },
+    }));
   }, []);
 
   const updateDerived = useCallback((records: LoopcheckRecord[], prevState: LoopcheckAppState) => {
